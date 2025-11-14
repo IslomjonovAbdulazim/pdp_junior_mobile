@@ -7,7 +7,7 @@ import 'package:pdp_junior_mobile/features/auth/onboarding_page.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: kDebugMode,
+      enabled: kDebugMode && kIsWeb,
       builder: (context) => MyApp(),
     ),
   );

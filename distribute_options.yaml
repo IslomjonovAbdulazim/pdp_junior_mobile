@@ -1,0 +1,29 @@
+output: build/dist/
+releases:
+  - name: all
+    jobs:
+      - name: ios
+        variables:
+          APPSTORE_USERNAME: azim.islom.quran@gmail.com
+          APPSTORE_PASSWORD: dbef-zxtd-dxns-uxph
+        package:
+          platform: ios
+          target: ipa
+          build_args:
+            export-method: app-store
+        publish:
+          target: appstore
+
+      - name: ios-profile
+        variables:
+          REPACKAGE_IPA: YES
+          APPSTORE_USERNAME: azim.islom.quran@gmail.com
+          APPSTORE_PASSWORD: dbef-zxtd-dxns-uxph
+        package:
+          platform: ios
+          target: ipa
+          build_args:
+            export-method: app-store
+            profile:
+        publish:
+          target: appstore
