@@ -1,5 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pdp_junior_mobile/features/auth/auth_page.dart';
+import 'package:pdp_junior_mobile/widgets/button_widget.dart';
 import 'package:pdp_junior_mobile/widgets/text_widget.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:get/get.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -9,28 +14,30 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
+  final controller = WebViewController()
+    ..loadRequest(
+      Uri.parse(
+        kIsWeb ? "https://en.wikipedia.org/" : "https://junior.pdp.uz/",
+      ),
+    );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      backgroundColor: Colors.white,
+      bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(24),
-          child: Center(
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    "assets/app_logo.png",
-                    height: 200,
-                    width: 200,
-                  ),
-                ),
-                MyText.headline("PDP Junior"),
-              ],
-            ),
+          padding: const EdgeInsets.only(left: 24, right: 24, bottom: 8),
+          child: MyButton.primary(
+            () {
+              Get.to(AuthPage());
+            },
+            "Ilovaga kirish",
           ),
         ),
+      ),
+      body: SafeArea(
+        child: WebViewWidget(controller: controller),
       ),
     );
   }
