@@ -21,12 +21,15 @@ class _AuthPageState extends State<AuthPage> {
   void complete(String code) async {
     isLoading = true;
     setState(() {});
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     if (code == "88888") {
-      Get.offAll([HomePage()]);
+      Get.offAll(HomePage());
     } else {
-      error = "Kod noto'g'ri yoki muddati tugagan. Tekshirib qayta urinib ko'ring!";
+      error =
+          "Kod noto'g'ri yoki muddati tugagan. Tekshirib qayta urinib ko'ring!";
     }
+    isLoading = false;
+    setState(() {});
   }
 
   @override
@@ -53,10 +56,18 @@ class _AuthPageState extends State<AuthPage> {
                     "Telegram bot dan olgan tasdiqlash kodingini shu yerga kiriting",
                   ),
                   SizedBox(height: 16),
-                  Pinput(
-                    length: 5,
-                    autofocus: true,
-                  ),
+                  if (isLoading == false)
+                    Pinput(
+                      length: 5,
+                      autofocus: true,
+                      onCompleted: complete,
+                    )
+                  else
+                    CircularProgressIndicator(),
+
+                  SizedBox(height: 16),
+                  if (error != null) 
+                    MyText.body(error!),
                 ],
               ],
             ),
