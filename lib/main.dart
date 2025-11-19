@@ -1,10 +1,17 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:pdp_junior_mobile/features/auth/onboarding_page.dart';
+import 'package:pdp_junior_mobile/features/main/home_page.dart';
+import 'package:pdp_junior_mobile/utils/auth_utils.dart';
 
-void main() {
+void main() async {
+  final init = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: init);
+  await AuthUtils.checkToken();
+  FlutterNativeSplash.remove();
   runApp(
     DevicePreview(
       enabled: kDebugMode && kIsWeb,
@@ -20,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingPage(),
+      home: AuthUtils.isAuth ? HomePage() : OnboardingPage(),
     );
   }
 }
