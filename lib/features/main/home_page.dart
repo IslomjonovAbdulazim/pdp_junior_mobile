@@ -34,10 +34,10 @@ class _HomePageState extends State<HomePage> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home)),
-          BottomNavigationBarItem(icon: Icon(Icons.gamepad)),
-          BottomNavigationBarItem(icon: Icon(Icons.chat)),
           BottomNavigationBarItem(icon: Icon(Icons.book)),
-          BottomNavigationBarItem(icon: Icon(Icons.translate)),
+          BottomNavigationBarItem(icon: Icon(Icons.chat)),
+          BottomNavigationBarItem(icon: Icon(Icons.gamepad)),
+          BottomNavigationBarItem(icon: Icon(Icons.person)),
         ],
       ),
     );
