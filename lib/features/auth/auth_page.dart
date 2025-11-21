@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pdp_junior_mobile/features/main/home_page.dart';
+import 'package:pdp_junior_mobile/services/backend/auth.dart';
 import 'package:pdp_junior_mobile/utils/link_utils.dart';
 import 'package:pdp_junior_mobile/widgets/button_widget.dart';
 import 'package:pdp_junior_mobile/widgets/text_widget.dart';
@@ -21,12 +22,9 @@ class _AuthPageState extends State<AuthPage> {
   void complete(String code) async {
     isLoading = true;
     setState(() {});
-    await Future.delayed(Duration(seconds: 1));
-    if (code == "88888") {
+    final response = await AuthBackend().register(code);
+    if (response == true) {
       Get.offAll(HomePage());
-    } else {
-      error =
-          "Kod noto'g'ri yoki muddati tugagan. Tekshirib qayta urinib ko'ring!";
     }
     isLoading = false;
     setState(() {});

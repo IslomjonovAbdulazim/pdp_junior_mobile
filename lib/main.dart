@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:pdp_junior_mobile/features/auth/onboarding_page.dart';
 import 'package:pdp_junior_mobile/features/main/home_page.dart';
 import 'package:pdp_junior_mobile/utils/auth_utils.dart';
+import 'package:toastification/toastification.dart';
 
 void main() async {
   final init = WidgetsFlutterBinding.ensureInitialized();
@@ -25,9 +26,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: AuthUtils.isAuth ? HomePage() : OnboardingPage(),
+    return ToastificationWrapper(
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: AuthUtils.isAuth ? HomePage() : OnboardingPage(),
+      ),
     );
   }
 }

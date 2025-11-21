@@ -33,11 +33,11 @@ class _HomePageState extends State<HomePage> {
           setState(() {});
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home)),
-          BottomNavigationBarItem(icon: Icon(Icons.book)),
-          BottomNavigationBarItem(icon: Icon(Icons.chat)),
-          BottomNavigationBarItem(icon: Icon(Icons.gamepad)),
-          BottomNavigationBarItem(icon: Icon(Icons.person)),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.book), label: "Kitob"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "AI"),
+          BottomNavigationBarItem(icon: Icon(Icons.gamepad), label: "O'yin"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
         ],
       ),
     );

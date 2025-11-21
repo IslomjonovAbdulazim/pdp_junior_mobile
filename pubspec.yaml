@@ -25,6 +25,7 @@ dependencies:
   pinput: ^5.0.2
   shared_preferences: ^2.5.3
   dio: ^5.9.0
+  toastification: ^3.0.3
 
 dev_dependencies:
   flutter_test:

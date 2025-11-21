@@ -11,6 +11,7 @@ class AuthUtils {
   static Future<void> checkToken() async {
     final db = await SharedPreferences.getInstance();
     final token = db.getString("token");
+    print(token);
     if (token == null) {
       isAuth = false;
     } else {
