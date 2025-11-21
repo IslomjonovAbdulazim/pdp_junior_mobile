@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pdp_junior_mobile/features/main/ai_page.dart';
+import 'package:pdp_junior_mobile/features/main/books_page.dart';
 import 'package:pdp_junior_mobile/features/main/games_page.dart';
-import 'package:pdp_junior_mobile/features/main/leaderboard_page.dart';
-import 'package:pdp_junior_mobile/features/main/lessons_page.dart';
 import 'package:pdp_junior_mobile/features/main/profile_page.dart';
 import 'package:pdp_junior_mobile/features/main/progress_page.dart';
 
@@ -15,11 +15,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int activePage = 0;
   final pages = [
-    LessonsPage(),
-    ProgressPage(),
-    LeaderboardPage(),
-    GamesPage(),
-    ProfilePage(),
+    ProgressPage(), // Fayzulloh, Abdulloh, Otabek
+    BooksPage(), // Abdurahmon, Behzod
+    AiPage(), // Muhammad Safo, Miraziz
+    GamesPage(), // Madina, Akmal, Umar, Umarjon
+    ProfilePage(), // Bahozir, Salohiddin
   ];
 
   @override
@@ -34,10 +34,10 @@ class _HomePageState extends State<HomePage> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home)),
-          BottomNavigationBarItem(icon: Icon(Icons.pie_chart)),
-          BottomNavigationBarItem(icon: Icon(Icons.leaderboard)),
           BottomNavigationBarItem(icon: Icon(Icons.gamepad)),
-          BottomNavigationBarItem(icon: Icon(Icons.person)),
+          BottomNavigationBarItem(icon: Icon(Icons.chat)),
+          BottomNavigationBarItem(icon: Icon(Icons.book)),
+          BottomNavigationBarItem(icon: Icon(Icons.translate)),
         ],
       ),
     );
